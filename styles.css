@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #1521d1;
 }
 
 header {
@@ -11,7 +11,7 @@ header {
     align-items: center;
     background-color: #ff6347;
     padding: 15px 20px;
-    color: white;
+    color: rgba(247, 243, 238, 0.897);
 }
 
 header .logo h1 {
@@ -68,6 +68,62 @@ nav button:hover {
 }
 
 .hero button:hover {
+    background-color: #ff847c;
+}
+
+/* Menu Section */
+.menu-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.menu-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+}
+
+.food-items {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.food-item {
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.food-item img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.food-item h3 {
+    font-size: 1.5em;
+    margin: 15px 0;
+}
+
+.food-item p {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.food-item button {
+    padding: 10px 20px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.food-item button:hover {
     background-color: #ff847c;
 }
 
