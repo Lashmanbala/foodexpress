@@ -12,44 +12,83 @@
             <h1>Pradha Food Express</h1>
         </div>
         <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#menu">Menu</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-            <button id="signInBtn" onclick="openSignInModal()">Sign In</button>
+            <div class="header-buttons"></div>
+                <button id="signInBtn" onclick="openSignInModal()">Sign In</button>
+                <!-- Cart Button -->
+                <div class="cart" onclick="viewCart()">
+                    <span class="cart-text">Cart-</span>
+                    <span id="cartCount">0</span>
+                </div>
+            </div>
         </nav>
     </header>
 
     <section class="hero">
         <h2>Delicious Meals Delivered to Your Door</h2>
         <p>Explore our menu and order now!</p>
-        <button>Order Now</button>
+        <a href="#menu" class="hero-btn">Order Now</a>
     </section>
 
     <!-- Menu Section -->
     <section id="menu" class="menu-section">
         <h2>Our Menu</h2>
         <div class="food-items">
+            <div class="food-items"></div>
+                <div class="food-item">
+                    <img src="images/idly.jpg" alt="Idly">
+                    <h3>Idly</h3>
+                    <p class="price">₹40</p> 
+                    <button onclick="addToCart('Idly', 40)">Add to Cart</button> 
+                </div>
+                <div class="food-item">
+                    <img src="images/dosa.jpg" alt="Dosa">
+                    <h3>Dosa</h3>
+                    <p class="price">₹40</p> <!-- Added price section -->
+                    <button onclick="addToCart('Dosa', 40)">Add to Cart</button>
+                </div>
+                <div class="food-item">
+                    <img src="images/puri.jpg" alt="Puri">
+                    <h3>Puri</h3>
+                    <p class="price">₹50</p> <!-- Added price section -->
+                    <button onclick="addToCart('Puri', 50)">Add to Cart</button>
+                </div>
             <div class="food-item">
-                <img src="images/pizza.jpg" alt="Pizza">
-                <h3>Classic Pizza</h3>
-                <p>Delicious cheesy pizza with fresh toppings</p>
-                <button>Order Now</button>
+                <img src="images/chicken_biryani.jpg" alt="Chicken Biryani">
+                <h3>Chicken Biryani</h3>
+                <p class="price">₹150</p> <!-- Added price section -->
+                <button onclick="addToCart('Chicken Biryani', 150)">Add to Cart</button>
             </div>
             <div class="food-item">
-                <img src="images/burger.jpg" alt="Burger">
-                <h3>Beef Burger</h3>
-                <p>Juicy beef burger with lettuce, tomato, and cheese</p>
-                <button>Order Now</button>
+                <img src="images/mutton_biryani.jpg" alt="Mutton Biryani">
+                <h3>Mutton Biryani</h3>
+                <p class="price">₹250</p> <!-- Added price section -->
+                <button onclick="addToCart('Mutton Biryani', 250)">Add to Cart</button>
             </div>
             <div class="food-item">
-                <img src="images/sushi.jpg" alt="Sushi">
-                <h3>Sushi Platter</h3>
-                <p>Fresh sushi assortment with dipping sauces</p>
-                <button>Order Now</button>
+                <img src="images/full_meals.jpg" alt="Full Meals">
+                <h3>Full Meals</h3>
+                <p class="price">₹150</p> <!-- Added price section -->
+                <button onclick="addToCart('Full Meals', 150)">Add to Cart</button>
             </div>
+            <div class="food-items">
+                <div class="food-item">
+                    <img src="images/tea.jpg" alt="Tea">
+                    <h3>Tea</h3>
+                    <p class="price">₹15</p> <!-- Added price section -->
+                    <button onclick="addToCart('Tea', 15)">Add to Cart</button>
+                </div>
+                <div class="food-item">
+                    <img src="images/coffee.jpg" alt="Coffee">
+                    <h3>Coffee</h3>
+                    <p class="price">₹20</p> 
+                    <button onclick="addToCart('Coffee', 20)">Add to Cart</button>
+                </div>
+                <div class="food-item">
+                    <img src="images/masala_milk.jpg" alt="Masala Milk">
+                    <h3>Masala Milk</h3>
+                    <p class="price">₹20</p> 
+                    <button onclick="addToCart('Masala Milk', 20)">Add to Cart</button>
+                </div>
         </div>
     </section>
 
@@ -65,6 +104,16 @@
                 <input type="password" id="password" name="password" required>
                 <button type="submit">Sign In</button>
             </form>
+        </div>
+    </div>
+
+    <!-- Cart Summary Modal -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCartModal()">&times;</span>
+            <h2>Your Cart</h2>
+            <ul id="cartItemsList"></ul>
+            <button id="clearCartBtn" onclick="clearCart()">Clear Cart</button>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #1521d1;
+    background-color: #E7BC3A;
 }
 
 header {
@@ -10,7 +10,7 @@ header {
     justify-content: space-between;
     align-items: center;
     background-color: #ff6347;
-    padding: 15px 20px;
+    padding: 30px 20px;
     color: rgba(247, 243, 238, 0.897);
 }
 
@@ -23,7 +23,7 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 20px;
+    gap: 50px;
 }
 
 nav ul li a {
@@ -31,12 +31,85 @@ nav ul li a {
     text-decoration: none;
 }
 
-nav button {
-    background-color: white;
-    color: #ff6347;
-    border: none;
+/* Cart button styles */
+.header-buttons {
+    margin-left: auto;  
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    background-color: #ff6347;
+    color: white;
     padding: 10px 20px;
+    border-radius: 5px;
     cursor: pointer;
+}
+
+#cartText {
+    font-size: 1.2em;
+    margin-right: 100px;
+}
+
+#cartCount {
+    font-weight: bold;
+    color: white;
+}
+
+/* Cart Modal Styles */
+#cartModal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+#cartModal .modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    text-align: center;
+}
+
+#cartItemsList {
+    list-style-type: none;
+    padding: 0;
+}
+
+#cartItemsList li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cartItemsList li button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin-left: 20px;
+}
+
+
+nav button {
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    padding: 5px 20px;
+    cursor: pointer;
+    font-size: 1.0em;
 }
 
 nav button:hover {
@@ -46,9 +119,9 @@ nav button:hover {
 /* Hero Section */
 .hero {
     text-align: center;
-    padding: 100px 20px;
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    color: white;
+    padding: 140px 20px;
+    background: url('images/background.png') no-repeat center center/cover;
+    color: #0c0b0b;
 }
 
 .hero h2 {
@@ -59,23 +132,26 @@ nav button:hover {
     font-size: 1.5em;
 }
 
-.hero button {
+.hero-btn {
     padding: 15px 30px;
     background-color: #ff6347;
     color: white;
-    border: none;
-    cursor: pointer;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    display: inline-block;
+    margin-top: 20px;
 }
 
-.hero button:hover {
-    background-color: #ff847c;
+.hero-btn:hover {
+    background-color: #f81707;
 }
 
 /* Menu Section */
 .menu-section {
     text-align: center;
     padding: 50px 20px;
-    background-color: #fff;
+    background-color: white;
 }
 
 .menu-section h2 {
@@ -101,6 +177,7 @@ nav button:hover {
 
 .food-item img {
     width: 100%;
+    aspect-ratio: 16/9;
     border-radius: 10px;
 }
 
@@ -124,7 +201,14 @@ nav button:hover {
 }
 
 .food-item button:hover {
-    background-color: #ff847c;
+    background-color: #fd1909;
+}
+
+.food-item .price {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
 /* Sign In Modal */
