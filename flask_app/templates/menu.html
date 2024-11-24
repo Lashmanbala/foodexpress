@@ -28,6 +28,21 @@
 
     <section id="menu" class="menu-section">
         <h2>Our Menu</h2>
+
+        <!-- Flash Messages Section -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
         <div class="food-items">
             <div class="food-item">
                 <img src="static/images/idly.jpg" alt="Idly">

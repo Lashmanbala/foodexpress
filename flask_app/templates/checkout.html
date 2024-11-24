@@ -15,6 +15,21 @@
     
     <section class="form-container">
         <h2>Checkout</h2>
+
+        <!-- Flash Messages Section -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">
+                        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+        {% endwith %}
+
         <form action="{{ url_for('checkout') }}" method="POST">
             <h3>Order Summary:</h3>
             <ul>
