@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Pradha Food Express</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Pradha Food Express</h1>
+        </div>
+        <nav>
+            <div class="header-buttons">
+                {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('account') }}" class="nav-btn">Account</a>
+                    <a href="{{ url_for('view_cart') }}" class="nav-btn">Cart</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}" class="nav-btn">Login</a>
+                    <a href="{{ url_for('register') }}" class="nav-btn">Sign Up</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+
+    <section id="menu" class="menu-section">
+        <h2>Our Menu</h2>
+        <div class="food-items">
+            <div class="food-item">
+                <img src="static/images/idly.jpg" alt="Idly">
+                <h3>Idly</h3>
+                <p class="price">₹40</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Idly', price=40) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+            <div class="food-item">
+                <img src="static/images/dosa.jpg" alt="Dosa">
+                <h3>Dosa</h3>
+                <p class="price">₹40</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Dosa', price=40) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+            <div class="food-item">
+                <img src="static/images/puri.jpg" alt="Puri">
+                <h3>Puri</h3>
+                <p class="price">₹50</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Puri', price=50) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="food-items">
+            <div class="food-item">
+                <img src="static/images/chicken_biryani.jpg" alt="Chicken Biryani">
+                <h3>Chicken Biryani</h3>
+                <p class="price">₹150</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Chicken Biryani', price=150) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+            <div class="food-item">
+                <img src="static/images/mutton_biryani.jpg" alt="Mutton Biryani">
+                <h3>Mutton Biryani</h3>
+                <p class="price">₹250</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Mutton Biryani', price=250) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+            <div class="food-item">
+                <img src="static/images/full_meals.jpg" alt="Full Meals">
+                <h3>Full Meals</h3>
+                <p class="price">₹150</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Full Meals', price=150) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="food-items">
+            <div class="food-item">
+                <img src="static/images/tea.jpg" alt="Tea">
+                <h3>Tea</h3>
+                <p class="price">₹15</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Tea', price=15) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+            <div class="food-item">
+                <img src="static/images/coffee.jpg" alt="Coffee">
+                <h3>Coffee</h3>
+                <p class="price">₹30</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Coffee', price=30) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+            <div class="food-item">
+                <img src="static/images/masala_milk.jpg" alt="Masala Milk">
+                <h3>Masala Milk</h3>
+                <p class="price">₹20</p> 
+                {% if current_user.is_authenticated %}
+                    <form action="{{ url_for('place_order', item='Masala Milk', price=20) }}" method="post">
+                        <button type="submit">Add to Cart</button>
+                    </form>
+                {% else %}
+                    <p><a href="{{ url_for('login') }}">Login to order</a></p>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 FoodExpress - All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update - Pradha Food Express</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Pradha Food Express</h1>
+        </div>
+    </header>
+    <div class="form-container">
+        <h2>Username: {{ current_user.username }}</h2>
+        <h2>Email: {{ current_user.email }}</h2>
+    </div>
+    <section class="form-container">
+        <h2>Update Account</h2>
+        
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.username.label(class="form-label") }}
+                {{ form.username(class="form-input", placeholder="Enter username") }}
+                {% if form.username.errors %}
+                    <div class="form-error">{{ form.username.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.email.label(class="form-label") }}
+                {{ form.email(class="form-input", placeholder="Enter email") }}
+                {% if form.email.errors %}
+                    <div class="form-error">{{ form.email.errors[0] }}</div>
+                {% endif %}
+            </div>
+            <button type="submit" class="form-btn">Update </button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2024 Pradha Food Express - All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
