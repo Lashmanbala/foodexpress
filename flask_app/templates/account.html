@@ -24,11 +24,9 @@
                     <a href="/login" class="nav-btn">Login</a>
                     <a href="/register" class="nav-btn">Sign Up</a>
                 {% endif %}
+                <h2><a href="/update" class="nav-btn">{{ current_user.username }}</a></h2>
             </div>
         </nav>
-        <div class="ac_detail">
-            <h2><a href="/update">{{ current_user.username }}</a></h2>
-        </div>
     </header>
     
     <section class="hero">

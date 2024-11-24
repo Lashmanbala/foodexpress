@@ -1,72 +1,3 @@
-// Function to open the registration modal
-function openRegisterModal() {
-    document.getElementById("registerModal").style.display = "flex";
-}
-
-// Function to close the registration modal
-function closeRegisterModal() {
-    document.getElementById("registerModal").style.display = "none";
-}
-
-// Auto-close modal after 5 seconds
-function autoCloseModal(modalId) {
-    setTimeout(() => {
-        const modal = document.getElementById(modalId);
-        if (modal && modal.style.display === "flex") {
-            modal.style.display = "none";
-        }
-    }, 5000); // Auto-close after 5 seconds (5000ms)
-}
-
-// Event listener for the sign-in form submission
-document.getElementById('signInForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const email = document.getElementById('signInEmail').value;
-    const password = document.getElementById('signInPassword').value;
-
-    // Check if the user exists in localStorage
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(user => user.email === email && user.password === password);
-
-    if (user) {
-        alert(`Welcome back, ${user.username}!`);
-        closeSignInModal(); // Close the modal
-    } else {
-        alert("Invalid email or password. Please try again.");
-    }
-});
-
-// Event listener for the registration form submission
-document.getElementById('registerForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-
-    const username = document.getElementById('registerUsername').value;
-    const email = document.getElementById('registerEmail').value;
-    const password = document.getElementById('registerPassword').value;
-    const confirmPassword = document.getElementById('registerConfirmPassword').value;
-
-    // Validation
-    if (password !== confirmPassword) {
-        alert("Passwords do not match. Please try again.");
-        return;
-    }
-
-    // Check if the email is already registered
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    if (users.some(user => user.email === email)) {
-        alert("This email is already registered. Please use another email.");
-        return;
-    }
-
-    // Save the new user
-    users.push({ username, email, password });
-    localStorage.setItem('users', JSON.stringify(users));
-
-    alert("Registration successful! You can now sign in.");
-    closeRegisterModal(); // Close the modal
-});
-
 let cart = [];
 
 // Function to add a food item to the cart
@@ -177,5 +108,3 @@ window.addEventListener('storage', () => {
     loadCartFromStorage();
 });
 
-function saveCartToStorage() {
-    localStorage.setItem('cart', JSON.stringify(cart));
